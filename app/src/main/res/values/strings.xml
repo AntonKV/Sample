@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Sample</string>
+
+    <string name="error">Ошибка</string>
+    <string name="send">Отправить</string>
+    <string name="auth">Авторизация</string>
+    <string name="list">Список</string>
+</resources>

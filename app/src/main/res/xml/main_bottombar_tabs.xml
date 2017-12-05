@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_count"
+        icon="@drawable/ic_launcher_foreground"
+        title="@string/list"/>
+    <tab
+        id="@+id/tab_groups"
+        icon="@drawable/ic_launcher_foreground"
+        title="@string/list"/>
+    <tab
+        id="@+id/tab_info"
+        icon="@drawable/ic_launcher_foreground"
+        title="@string/list"/>
+</tabs>
