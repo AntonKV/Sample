@@ -6,6 +6,8 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.gmail.kolominantonvas.sample.R
 import com.gmail.kolominantonvas.sample.entity.annotation.Toolbar
+import com.gmail.kolominantonvas.sample.extension.ExtensionUtils.positiveButton
+import com.gmail.kolominantonvas.sample.extension.createAlertDialog
 import com.gmail.kolominantonvas.sample.presenter.auth.AuthFragmentPresenter
 import com.gmail.kolominantonvas.sample.ui.base.BaseToolbarFragment
 import kotlinx.android.synthetic.main.fragment_auth.*
@@ -31,5 +33,15 @@ class AuthFragment : BaseToolbarFragment(), AuthFragmentView {
         login_btn.setOnClickListener {
             presenter.login(login.text.toString(), password.text.toString())
         }
+    }
+
+    override fun showErrorDialog(login: String, error: String) {
+        context!!.createAlertDialog {
+            setTitle(login + "! " + getString(R.string.catch_error))
+            setMessage(error)
+            positiveButton("Ok") {_, dialog ->
+                dialog.dismiss()
+            }
+        }.show()
     }
 }

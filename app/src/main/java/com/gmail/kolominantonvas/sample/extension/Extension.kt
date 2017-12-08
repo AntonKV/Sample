@@ -4,6 +4,7 @@ import android.content.Context
 import android.support.annotation.LayoutRes
 import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,8 +30,10 @@ fun Fragment.getBundleFragment(vararg data: Any?): Fragment {
     return this
 }
 
-fun <T> MutableSet<T>.get(n: Int): T? {
-    return this
-            .filterIndexed { index, _ -> index == n }
-            .firstOrNull()
+fun <T> MutableSet<T>.get(n: Int): T? = this.filterIndexed { index, _ -> index == n }.firstOrNull()
+
+fun Context.createAlertDialog(dialogBuilder: AlertDialog.Builder.() -> Unit): AlertDialog {
+    val builder = AlertDialog.Builder(this)
+    builder.dialogBuilder()
+    return builder.create()
 }

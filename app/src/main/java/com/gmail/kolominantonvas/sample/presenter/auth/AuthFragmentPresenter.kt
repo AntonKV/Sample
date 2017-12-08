@@ -22,7 +22,7 @@ class AuthFragmentPresenter @Inject constructor(
         authInteractor.login(login, password).subscribe({
             router.newRootScreen(Screens.MAIN_SCREEN, it)
         }, {
-            viewState.showToast(it.message.toString())
+            viewState.showErrorDialog(login, it.message.toString())
             Timber.e(it)
         })
     }
